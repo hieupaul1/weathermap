@@ -1,21 +1,16 @@
----
-- name: dat ip cho loobpack
-  hosts: all
-  gather_facts: no
-  tasks:
-     - name: Set loopback IPv4 address
-       ios_l3_interface:
-          name: loopback {{item.name}}
-          ipv4:  10.10.{{item.ip}}.1
-       with_items:
-        - { name: 1, ip: "1" }
-        - { name: 2, ip: "2" }
+<!DOCTYPE html>
+<html>
+<body style="margin:0; background:black;">
+  <img id="graph"
+       referrerpolicy="no-referrer"
+       src="https://cacti.iptp.net/cacti/plugins/weathermap/output/weathermap.png"
+       style="width:100vw; height:100vh; object-fit:contain;">
   
-     
-     - name: show ip
-       ios_command:
-          command:
-            - show ip int br
-       register: show_ip
-     - debug: var=show_ip.stdout_lines
-    
+  <script>
+    setInterval(function() {
+      document.getElementById("graph").src =
+        "https://cacti.iptp.net/cacti/plugins/weathermap/output/weathermap.png&rand=" + new Date().getTime();
+    }, 300000);
+  </script>
+</body>
+</html>
