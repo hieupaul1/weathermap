@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-<body style="margin:0; background:black;">
+<body style="margin:0;background:black;">
   <img id="graph"
        referrerpolicy="no-referrer"
        src="https://cacti.iptp.net/cacti/plugins/weathermap/output/weathermap.png"
-       style="width:100vw; height:100vh; object-fit:contain;">
-  
+       style="width:100vw;height:100vh;object-fit:contain;">
+
   <script>
-    setInterval(function() {
-      document.getElementById("graph").src =
-        "https://cacti.iptp.net/cacti/plugins/weathermap/output/weathermap.png&rand=" + new Date().getTime();
+    const img = document.getElementById("graph");
+
+    setInterval(() => {
+      img.src = "https://cacti.iptp.net/cacti/plugins/weathermap/output/weathermap.png?t=" + Date.now();
     }, 300000);
   </script>
 </body>
-</html>
