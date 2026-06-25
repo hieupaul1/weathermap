@@ -1,31 +1,16 @@
 <!DOCTYPE html>
 <html>
-<body style="margin:0;background:black;overflow:hidden;">
+<body style="margin:0;background:black;">
+  <img id="graph"
+       referrerpolicy="no-referrer"
+       src="https://cacti.iptp.net/cacti/plugins/weathermap/output/weathermap.png"
+       style="width:100vw;height:100vh;object-fit:contain;">
 
-<img id="graph"
-     referrerpolicy="no-referrer"
-     src="https://cacti.iptp.net/cacti/plugins/weathermap/output/weathermap.png"
-     style="width:100vw;height:100vh;object-fit:contain;">
+  <script>
+    const img = document.getElementById("graph");
 
-<button id="fullscreenBtn"
-        style="position:absolute;top:10px;right:10px;z-index:999;">
-    Full Screen
-</button>
-
-<script>
-const img = document.getElementById("graph");
-
-setInterval(() => {
-    img.src = "https://cacti.iptp.net/cacti/plugins/weathermap/output/weathermap.png?t=" + Date.now();
-}, 300000);
-
-// Fullscreen
-document.getElementById("fullscreenBtn").addEventListener("click", () => {
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-    }
-});
-</script>
-
+    setInterval(() => {
+      img.src = "https://cacti.iptp.net/cacti/plugins/weathermap/output/weathermap.png?t=" + Date.now();
+    }, 300000);
+  </script>
 </body>
-</html>
